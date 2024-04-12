@@ -20,14 +20,13 @@ public class FirstTest {
         env.put("PLAYWRIGHT_BROWSERS_PATH", binariesDir);
         Playwright.CreateOptions options = new Playwright.CreateOptions();
 
-        try (Playwright playwright = Playwright.create(options.setEnv(env))) {
-
-            Browser browser = playwright.chromium().launch(
-                    new BrowserType.LaunchOptions()
-                            .setChannel("chrome")
-                            .setHeadless(false)
-                            .setSlowMo(50)
-            );
+        try (Playwright playwright = Playwright.create(options.setEnv(env));
+             Browser browser = playwright.chromium().launch(
+                     new BrowserType.LaunchOptions()
+                             .setChannel("chrome")
+                             .setHeadless(false)
+                             .setSlowMo(50))
+        ) {
 
             BrowserContext context = browser.newContext(
                     new Browser.NewContextOptions()
