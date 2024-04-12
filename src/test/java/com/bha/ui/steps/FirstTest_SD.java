@@ -92,4 +92,9 @@ public class FirstTest_SD {
 
         browser.close();
     }
+
+    @Given("Dummy Test")
+    public void dummyTest() {
+        System.out.println("Dummy File");
+    }
 }
